@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}{{ pokemon.name }} - Detalle{% endblock %}
+
+{% block content %}
+<div class="detalle-container">
+    <h2>#{{ pokemon.num }} - {{ pokemon.name }}</h2>
+    <div class="detalle-box">
+        <img src="{{ pokemon.img }}" alt="{{ pokemon.name }}" width="200">
+
+        <ul>
+            <li><strong>Tipo:</strong> {{ pokemon.type | join(", ") }}</li>
+            <li><strong>Altura:</strong> {{ pokemon.height }}</li>
+            <li><strong>Peso:</strong> {{ pokemon.weight }}</li>
+            <li><strong>Debilidades:</strong> {{ pokemon.weaknesses | join(", ") }}</li>
+
+            {% if pokemon.prev_evolution %}
+            <li><strong>Evoluciones previas:</strong>
+                {{ pokemon.prev_evolution | map(attribute='name') | join(", ") }}
+            </li>
+            {% endif %}
+
+            {% if pokemon.next_evolution %}
+            <li><strong>Próximas evoluciones:</strong>
+                {{ pokemon.next_evolution | map(attribute='name') | join(", ") }}
+            </li>
+            {% endif %}
+        </ul>
+
+        <a href="{{ url_for('lista_pokemon') }}" class="volver-link">← Volver al listado</a>
+    </div>
+</div>
+{% endblock %}
