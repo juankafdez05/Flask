@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Buscar Pokémon{% endblock %}
+
+{% block content %}
+<h2>Buscar Pokémon</h2>
+
+<form method="POST" action="{{ url_for('lista_pokemon') }}">
+    <input type="text" name="nombre" placeholder="Nombre o número" value="{{ nombre }}">
+    
+    <select name="tipo">
+        <option value="">--Todos los tipos--</option>
+        {% for tipo in tipos %}
+            <option value="{{ tipo }}" {% if tipo == tipo_seleccionado %}selected{% endif %}>{{ tipo }}</option>
+        {% endfor %}
+    </select>
+
+    <select name="orden">
+        <option value="">--Ordenar por--</option>
+        <option value="name" {% if orden == "name" %}selected{% endif %}>Nombre</option>
+        <option value="num" {% if orden == "num" %}selected{% endif %}>Número</option>
+        <option value="weight" {% if orden == "weight" %}selected{% endif %}>Peso</option>
+        <option value="height" {% if orden == "height" %}selected{% endif %}>Altura</option>
+    </select>
+
+    <label>
+        Descendente
+        <input type="checkbox" name="desc" value="1" {% if desc %}checked{% endif %}>
+    </label>
+
+    <button type="submit">Buscar</button>
+</form>
+
+{% if pokemones %}
+    <h2>Resultados</h2>
+    <table>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Detalles</th>
+        </tr>
+        {% for p in pokemones %}
+        <tr>
+            <td><img src="{{ p.img }}" alt="{{ p.name }}" width="60"></td>
+            <td>{{ p.name }}</td>
+            <td>{{ p.type | join(', ') }}</td>
+            <td><a href="{{ url_for('detalle', identificador=p.id_str) }}">Ver detalle</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% elif busqueda_realizada %}
+    <p>No se han encontrado Pokémon.</p>
+{% endif %}
+{% endblock %}
