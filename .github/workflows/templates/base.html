@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Pokédex{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>POKÉDEX – PRIMERA GENERACIÓN</h1>
+        <nav>
+            <a href="{{ url_for('portada') }}">Inicio</a>
+            <a href="{{ url_for('lista_pokemon') }}">Pokémon</a>
+        </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+</body>
+</html>
