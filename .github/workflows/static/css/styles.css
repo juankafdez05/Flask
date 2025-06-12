@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('/static/img/pokeball-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    color: #222;
+}
+
+a {
+    text-decoration: none;
+    color: #e63946;
+}
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+
+header {
+    background-color: #e63946;
+    color: white;
+    padding: 1.5em;
+    text-align: center;
+}
+header h1 {
+    margin: 0;
+    font-size: 2em;
+    text-transform: uppercase;
+}
+nav {
+    margin-top: 0.5em;
+}
+nav a {
+    margin: 0 1em;
+    color: white;
+    font-weight: bold;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+form {
+    text-align: center;
+    margin: 2em auto;
+}
+form input[type="text"],
+form select {
+    padding: 0.6em;
+    margin: 0.5em;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    width: 180px;
+}
+form button {
+    padding: 0.6em 1.2em;
+    background: #1d3557;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+form button:hover {
+    background: #457b9d;
+}
+
+
+table {
+    width: 90%;
+    margin: 2em auto;
+    border-collapse: collapse;
+    background: #fff3d6;
+    font-size: 1em;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+th, td {
+    padding: 1em;
+    text-align: center;
+    border-bottom: 1px solid #e07c2a;
+}
+th {
+    background-color: #e07c2a;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+img {
+    max-height: 80px;
+}
+
+
+.detalle-container {
+    background-image: url("/static/img/pokeball-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 2em;
+    min-height: 80vh;
+    color: #fff;
+}
+
+.detalle-box {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 2em;
+    border-radius: 1em;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+.detalle-box img {
+    margin-bottom: 1em;
+}
+.detalle-box ul {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: left;
+}
+.detalle-box li {
+    margin: 0.5em 0;
+    font-size: 1.1em;
+}
+
+.volver-link {
+    display: inline-block;
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    background: #e63946;
+    color: white;
+    border-radius: 5px;
+}
+.volver-link:hover {
+    background: #c92b2b;
+    text-decoration: none;
+}
+
+
+@media (min-width: 768px) {
+    .detalle-container {
+        padding: 4em;
+    }
+}
