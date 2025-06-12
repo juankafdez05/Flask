@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Portada{% endblock %}
+
+{% block content %}
+<div style="text-align: center;">
+    <a href="{{ url_for('lista_pokemon') }}">
+        <img src="{{ url_for('static', filename='img/portada.webp') }}" alt="Portada Pokédex" style="max-width: 90%;">
+    </a>
+    <p>Haz clic en la imagen para explorar los Pokémon de la primera generación.</p>
+</div>
+{% endblock %}
